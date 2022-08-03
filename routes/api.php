@@ -18,6 +18,9 @@ use App\Http\Controllers\APIController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::get('/student/get',[APIController::class,'get']);
+Route::get('/student/get',[APIController::class,'get'])->middleware("logged");
 Route::get('/student/get/{id}',[APIController::class,'search']);
 Route::post('/student/create',[APIController::class,'create']);
+Route::post('/login',[APIController::class,'login']);
+Route::post('/logout',[APIController::class,'logout']);
+Route::post('/file',[APIController::class,'file']);
